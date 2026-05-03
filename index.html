@@ -252,9 +252,15 @@
             <div class="glass-panel rounded-[2.5rem] p-8 md:p-12">
                 <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
                     <div class="max-w-2xl">
-                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-brand-purple/20 text-brand-purple text-xs font-bold uppercase tracking-widest mb-4">Destaque Visual</div>
-                        <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">LotoStrategy Showcase</h2>
-                        <p class="text-slate-400 text-lg">Apresentação do LotoStrategy, reunindo contexto, benefícios visuais da interface, recursos organizados por blocos e screenshots reais do aplicativo.</p>
+                        <!-- Nova seção de Header com a Logo do App -->
+                        <div class="flex items-center gap-5 mb-4">
+                            <img src="https://play-lh.googleusercontent.com/8t6SRDq04T6kKY1DytJ0_U3ukzSUev1g-t7MPVIWW4p_j5EX7WrT6se7pX6vOk9IHyU=w240-h480-rw" alt="LotoStrategy Logo" class="w-16 h-16 object-cover rounded-2xl shadow-[0_8px_30px_rgba(124,77,255,0.3)] border border-slate-700">
+                            <div>
+                                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-brand-purple/20 text-brand-purple text-xs font-bold uppercase tracking-widest mb-2">Destaque Visual</div>
+                                <h2 class="text-3xl md:text-5xl font-bold text-white leading-none">LotoStrategy Showcase</h2>
+                            </div>
+                        </div>
+                        <p class="text-slate-400 text-lg mt-4">Apresentação do aplicativo reunindo contexto, benefícios visuais da interface, recursos organizados por blocos e todas as screenshots da loja.</p>
                     </div>
                     <a href="https://play.google.com/store/apps/details?id=com.lotostrategy" target="_blank" rel="noopener" class="shrink-0 px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold transition-colors flex items-center gap-2">
                         Abrir página do App
@@ -262,34 +268,69 @@
                     </a>
                 </div>
 
-                <!-- Gallery Grid -->
+                <!-- Gallery Grid Completo (Aspect Video para acomodar as telas horizontais em formato mais reduzido) -->
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-                    <!-- Images -->
-                    <div class="relative group rounded-2xl overflow-hidden aspect-[9/16] bg-dark-800 shadow-lg cursor-pointer">
+                    <!-- Image 1 -->
+                    <div class="relative group rounded-xl overflow-hidden aspect-video bg-dark-800 shadow-md border border-slate-700/50 cursor-pointer">
                         <img src="https://play-lh.googleusercontent.com/pEQmALb9x5XC_RULC7jCcPJcT3-V-qzqOzonEG10Y1_T3mMXMWQtmO_G76r9DO2wuh4T6MJjJxOq7KBaMN_kghY=w2560-h1440-rw" alt="Visão geral" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                            <span class="text-white font-semibold text-sm">Visão geral</span>
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                            <span class="text-white font-semibold text-xs drop-shadow-md">Visão geral</span>
                         </div>
                     </div>
                     
-                    <div class="relative group rounded-2xl overflow-hidden aspect-[9/16] bg-dark-800 shadow-lg cursor-pointer">
+                    <!-- Image 2 -->
+                    <div class="relative group rounded-xl overflow-hidden aspect-video bg-dark-800 shadow-md border border-slate-700/50 cursor-pointer">
+                        <img src="https://play-lh.googleusercontent.com/2imbKS2E41jocQGpyMEIE80TFLQbrepheFC1GdWp6AnizjtV-mzmOot7JdNIC79PGQ6T_8-Xn0FYCTTiQKdX5Q=w526-h296-rw" alt="Apresentação" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                            <span class="text-white font-semibold text-xs drop-shadow-md">Apresentação</span>
+                        </div>
+                    </div>
+
+                    <!-- Image 3 -->
+                    <div class="relative group rounded-xl overflow-hidden aspect-video bg-dark-800 shadow-md border border-slate-700/50 cursor-pointer">
                         <img src="https://play-lh.googleusercontent.com/GWLscPkn2kZbF6zxOGnVJyRGEcMDXDRRTYMdmBtvAVhV9FzpggTd_fUynuIXL1bv_7d1Ug7_H2eIEw0ALx-l3w=w2560-h1440-rw" alt="Estratégias" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                            <span class="text-white font-semibold text-sm">Estratégias</span>
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                            <span class="text-white font-semibold text-xs drop-shadow-md">Estratégias</span>
                         </div>
                     </div>
 
-                    <div class="relative group rounded-2xl overflow-hidden aspect-[9/16] bg-dark-800 shadow-lg cursor-pointer">
+                    <!-- Image 4 -->
+                    <div class="relative group rounded-xl overflow-hidden aspect-video bg-dark-800 shadow-md border border-slate-700/50 cursor-pointer">
                         <img src="https://play-lh.googleusercontent.com/w1N2jfEOk2UQG1M4jaNdyXTIpCR3pFl-LRW0x2IlNyDl-ALLmX9kraZdry5kIvth9L3DrTDkWdbZLHpnN__KRQ=w2560-h1440-rw" alt="Organização" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                            <span class="text-white font-semibold text-sm">Organização</span>
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                            <span class="text-white font-semibold text-xs drop-shadow-md">Organização</span>
                         </div>
                     </div>
 
-                    <div class="relative group rounded-2xl overflow-hidden aspect-[9/16] bg-dark-800 shadow-lg cursor-pointer">
+                    <!-- Image 5 -->
+                    <div class="relative group rounded-xl overflow-hidden aspect-video bg-dark-800 shadow-md border border-slate-700/50 cursor-pointer">
                         <img src="https://play-lh.googleusercontent.com/5dYbi_CcslOW4-BKuGPCpZsHUXSDq2ha7wS-ycX-azDfEfCMN13mRWDVTpPSaYEaHNCCxoD3TWJTomh4uR6fFA=w2560-h1440-rw" alt="Interface" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                            <span class="text-white font-semibold text-sm">Interface</span>
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                            <span class="text-white font-semibold text-xs drop-shadow-md">Interface</span>
+                        </div>
+                    </div>
+
+                    <!-- Image 6 -->
+                    <div class="relative group rounded-xl overflow-hidden aspect-video bg-dark-800 shadow-md border border-slate-700/50 cursor-pointer">
+                        <img src="https://play-lh.googleusercontent.com/gGOpfl4QyMV5HHkVPcYsAkm_o16WChvcy8snL97F4lxp177Buck-78mfzQB1n_tSiH5yULFQ5kKg_jU4EglfWQ=w2560-h1440-rw" alt="Painel visual" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                            <span class="text-white font-semibold text-xs drop-shadow-md">Painel visual</span>
+                        </div>
+                    </div>
+
+                    <!-- Image 7 -->
+                    <div class="relative group rounded-xl overflow-hidden aspect-video bg-dark-800 shadow-md border border-slate-700/50 cursor-pointer">
+                        <img src="https://play-lh.googleusercontent.com/bkTyawzYzRAlzDxtue-i6mdCI2NL84VMCvYe9FsZN4Y6EfB5A9piOdJWZecSvtd0i93s9c77ffTYK7hN1u09-w=w2560-h1440-rw" alt="Fluxo de uso" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                            <span class="text-white font-semibold text-xs drop-shadow-md">Fluxo de uso</span>
+                        </div>
+                    </div>
+
+                    <!-- Image 8 -->
+                    <div class="relative group rounded-xl overflow-hidden aspect-video bg-dark-800 shadow-md border border-slate-700/50 cursor-pointer">
+                        <img src="https://play-lh.googleusercontent.com/ZCSijsQHf8eHlP6fdUB5j0FLCpct3hrglvl0DWgWWj41BHjTRo1VYgkFh74W2WW3o-uN3WPQllbH-gVdaiaGdg=w2560-h1440-rw" alt="Recursos extras" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                            <span class="text-white font-semibold text-xs drop-shadow-md">Recursos extras</span>
                         </div>
                     </div>
                 </div>
