@@ -1,544 +1,206 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#020617">
-    <meta name="description" content="TJSDeveloper - aplicativos Android, soluções digitais, suporte, privacidade e portfólio oficial.">
-    <title>TJSDeveloper | Portfólio Oficial</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        dark: {
-                            900: '#020617', // slate-950
-                            800: '#0f172a', // slate-900
-                            700: '#1e293b', // slate-800
-                        },
-                        brand: {
-                            purple: '#7c4dff',
-                            cyan: '#30cfff',
-                            emerald: '#10b981'
-                        }
-                    },
-                    backgroundImage: {
-                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-                        'hero-glow': 'conic-gradient(from 180deg at 50% 50%, #7c4dff55 0deg, #30cfff55 180deg, #7c4dff55 360deg)',
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #020617; }
-        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #334155; }
-        
-        .glass-panel {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        
-        .text-gradient {
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+Texto colado(17).txt
+Documento
+eu preciso que melhore o show case está errado a visualização: 
 
-        #toast {
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
-            transform: translateY(100%);
-            opacity: 0;
-        }
-        #toast.show {
-            transform: translateY(0);
-            opacity: 1;
-        }
-    </style>
-</head>
-<body class="bg-dark-900 text-slate-300 antialiased selection:bg-brand-purple/30 selection:text-white relative overflow-x-hidden">
+Vou corrigir o problema principal do showcase: as imagens estão com object-cover em cards pequenos, então ficam cortadas. Vou transformar em uma vitrine com preview grande, miniaturas e visualização ampliada.
 
-    <!-- Background Effects -->
-    <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
-        <div class="absolute -top-[20%] -right-[10%] w-[70%] h-[70%] rounded-full bg-brand-purple/10 blur-[120px]"></div>
-        <div class="absolute top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-brand-cyan/10 blur-[120px]"></div>
-        <div class="absolute bottom-0 right-[20%] w-[60%] h-[60%] rounded-full bg-brand-purple/5 blur-[100px]"></div>
-    </div>
+Thought for 21s
 
-    <!-- Header / Navbar -->
-    <header class="fixed top-0 w-full z-50 glass-panel border-b-0 border-slate-800/50">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#inicio" class="flex items-center gap-4 group">
-                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-purple to-brand-cyan p-[1px] shadow-lg shadow-brand-purple/20 group-hover:shadow-brand-cyan/40 transition-shadow">
-                    <div class="w-full h-full bg-dark-900 rounded-[11px] flex items-center justify-center relative overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-br from-brand-purple/20 to-brand-cyan/20"></div>
-                        <svg class="w-6 h-6 text-white relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-                    </div>
-                </div>
-                <div>
-                    <strong class="block text-white text-lg font-bold tracking-tight">TJSDeveloper</strong>
-                    <span class="block text-xs text-slate-400">Apps Android & Soluções</span>
-                </div>
-            </a>
-            
-            <nav class="hidden md:flex items-center gap-8">
-                <a href="#apps" class="text-sm font-medium hover:text-white transition-colors">Aplicativos</a>
-                <a href="#lotostrategy" class="text-sm font-medium hover:text-white transition-colors">LotoStrategy</a>
-                <a href="#suporte" class="text-sm font-medium hover:text-white transition-colors">Suporte</a>
-                <a href="#privacidade" class="text-sm font-medium hover:text-white transition-colors">Privacidade</a>
-            </nav>
-        </div>
-    </header>
+Corrigi o showcase no arquivo HTML. O problema principal era que as screenshots estavam dentro de cards pequenos com aspect-video + object-cover, então a imagem ficava cortada e a visualização parecia errada. Mantive o restante do site e refiz a seção LotoStrategy Showcase com:
 
-    <main id="inicio" class="pt-32 pb-20 px-6 max-w-7xl mx-auto">
-        
-        <!-- Hero Section -->
-        <section class="grid lg:grid-cols-2 gap-16 items-center min-h-[70vh]">
-            <div class="space-y-8 relative z-10">
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border-brand-purple/30 text-brand-cyan text-xs font-semibold uppercase tracking-wider">
-                    <span class="w-2 h-2 rounded-full bg-brand-emerald animate-pulse shadow-[0_0_10px_rgba(16,185,129,0.8)]"></span>
-                    Portfólio Oficial • Suporte
-                </div>
-                
-                <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] tracking-tight">
-                    Tecnologia <span class="bg-gradient-to-r from-brand-purple to-brand-cyan text-gradient">prática</span>,<br>
-                    visual <span class="bg-gradient-to-r from-brand-cyan to-brand-purple text-gradient">profissional</span>.
-                </h1>
-                
-                <p class="text-lg text-slate-400 leading-relaxed max-w-xl">
-                    A <strong class="text-white font-semibold">TJSDeveloper</strong> desenvolve soluções Android voltadas para produtividade, organização e experiência de uso objetiva. Soluções focadas em resolver problemas reais.
-                </p>
-                
-                <div class="flex flex-wrap gap-4 pt-4">
-                    <a href="#lotostrategy" class="px-8 py-4 rounded-2xl bg-white text-dark-900 font-bold hover:bg-slate-200 transition-colors shadow-lg shadow-white/10 flex items-center gap-2">
-                        Conhecer Apps
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                    </a>
-                    <a href="mailto:tjsdeveloper.apps@gmail.com" class="px-8 py-4 rounded-2xl glass-panel text-white font-semibold hover:bg-white/10 transition-colors flex items-center gap-2">
-                        Entrar em contato
-                    </a>
-                </div>
+imagem principal grande;
+miniaturas clicáveis;
+object-contain para preservar a proporção das telas;
+botão Ampliar com modal;
+visual mais institucional e organizado;
+arquivo completo em HTML, pronto para substituir.
 
-                <div class="grid grid-cols-3 gap-4 pt-8 border-t border-slate-800/50 mt-12">
-                    <div>
-                        <b class="block text-white text-xl mb-1">Android</b>
-                        <span class="text-sm text-slate-500">Foco em utilidade real e fluidez.</span>
-                    </div>
-                    <div>
-                        <b class="block text-white text-xl mb-1">Suporte</b>
-                        <span class="text-sm text-slate-500">Canal centralizado e direto.</span>
-                    </div>
-                    <div>
-                        <b class="block text-white text-xl mb-1">Portfólio</b>
-                        <span class="text-sm text-slate-500">Projetos em constante evolução.</span>
-                    </div>
-                </div>
-            </div>
+Usei como base o HTML que você enviou.
 
-            <!-- Modern Device Mockup (CSS only) -->
-            <div class="hidden lg:flex justify-center relative">
-                <div class="absolute inset-0 bg-hero-glow blur-[100px] opacity-40 rounded-full"></div>
-                <div class="relative w-[320px] h-[650px] bg-dark-800 rounded-[3rem] p-3 shadow-2xl border border-slate-700/50 transform rotate-[-2deg] hover:rotate-0 transition-transform duration-700 ease-out z-10">
-                    <div class="absolute top-0 inset-x-0 flex justify-center">
-                        <div class="w-1/3 h-7 bg-dark-800 rounded-b-3xl z-20"></div>
-                    </div>
-                    <div class="w-full h-full bg-dark-900 rounded-[2.25rem] overflow-hidden border border-slate-800/80 relative flex flex-col">
-                        <div class="h-48 bg-gradient-to-br from-brand-purple to-brand-cyan p-6 flex flex-col justify-end">
-                            <span class="text-white/80 text-xs font-semibold uppercase tracking-wider mb-1">TJSDeveloper</span>
-                            <h3 class="text-white text-2xl font-bold leading-tight">Design com foco em clareza</h3>
-                        </div>
-                        <div class="flex-1 p-6 space-y-4">
-                            <div class="flex gap-2">
-                                <div class="px-3 py-1.5 rounded-full bg-slate-800 text-xs text-brand-cyan font-medium">Apps</div>
-                                <div class="px-3 py-1.5 rounded-full bg-slate-800 text-xs text-white font-medium">Suporte</div>
-                            </div>
-                            <div class="p-4 rounded-2xl bg-slate-800/50 border border-slate-700/50">
-                                <div class="w-8 h-8 rounded-lg bg-brand-purple/20 flex items-center justify-center mb-3">
-                                    <svg class="w-4 h-4 text-brand-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                </div>
-                                <strong class="block text-white text-sm mb-1">Visual Moderno</strong>
-                                <span class="text-xs text-slate-400">Interfaces diretas e limpas</span>
-                            </div>
-                            <div class="p-4 rounded-2xl bg-slate-800/50 border border-slate-700/50">
-                                <div class="w-8 h-8 rounded-lg bg-brand-cyan/20 flex items-center justify-center mb-3">
-                                    <svg class="w-4 h-4 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                                </div>
-                                <strong class="block text-white text-sm mb-1">Praticidade</strong>
-                                <span class="text-xs text-slate-400">Ferramentas para uso real</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+Arquivo pronto para baixar: tjsdeveloper_showcase_corrigido.html 
 
-        <!-- Apps Section -->
-        <section id="apps" class="py-24 border-t border-slate-800/50">
-            <div class="max-w-3xl mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Aplicativos e Soluções</h2>
-                <p class="text-slate-400 text-lg">Uma seleção de projetos publicados e em evolução. Cada aplicativo possui objetivo específico, linguagem visual própria e proposta orientada à praticidade.</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- App 1 -->
-                <div class="glass-panel p-8 rounded-3xl hover:-translate-y-2 transition-all duration-300 group">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-2xl font-bold text-white shadow-lg mb-6 group-hover:scale-110 transition-transform">ƒ</div>
-                    <h3 class="text-2xl font-bold text-white mb-3">fiimulator</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Aplicativo voltado à organização e simulação de cenários relacionados a dividendos, acompanhamento e tomada de decisão de forma mais prática e visual.</p>
-                    <div class="flex flex-wrap gap-2 mb-8">
-                        <span class="px-3 py-1 rounded-full bg-slate-800 text-xs text-slate-300">Finanças</span>
-                        <span class="px-3 py-1 rounded-full bg-slate-800 text-xs text-slate-300">Produtividade</span>
-                    </div>
-                    <a href="https://play.google.com/store/apps/details?id=com.fiimulator" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-semibold text-brand-cyan hover:text-white transition-colors">
-                        Ver na Google Play
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                    </a>
-                </div>
-
-                <!-- App 2 -->
-                <div class="glass-panel p-8 rounded-3xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-brand-purple/10 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500"></div>
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-purple to-brand-cyan flex items-center justify-center text-2xl font-bold text-white shadow-lg mb-6 group-hover:scale-110 transition-transform">L</div>
-                    <h3 class="text-2xl font-bold text-white mb-3">LotoStrategy</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Ferramenta independente de apoio para organização, visualização de padrões, montagem e acompanhamento de combinações da Lotofácil.</p>
-                    <div class="flex flex-wrap gap-2 mb-8">
-                        <span class="px-3 py-1 rounded-full bg-slate-800 text-xs text-slate-300">Estratégia</span>
-                        <span class="px-3 py-1 rounded-full bg-slate-800 text-xs text-slate-300">Organização</span>
-                    </div>
-                    <div class="flex gap-4">
-                        <a href="https://play.google.com/store/apps/details?id=com.lotostrategy" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-semibold text-brand-purple hover:text-white transition-colors">
-                            Google Play
-                        </a>
-                        <a href="#lotostrategy" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-400 hover:text-white transition-colors">
-                            Ver detalhes &rarr;
-                        </a>
-                    </div>
-                </div>
-
-                <!-- App 3 -->
-                <div class="glass-panel p-8 rounded-3xl hover:-translate-y-2 transition-all duration-300 group opacity-80 hover:opacity-100 border-dashed border-slate-700">
-                    <div class="w-16 h-16 rounded-2xl bg-slate-800 flex items-center justify-center text-xl font-bold text-slate-400 shadow-inner mb-6">BT</div>
-                    <h3 class="text-2xl font-bold text-white mb-3">TJSyncBT</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Projeto em evolução dentro do ecossistema, com foco em utilidade técnica, conexão e sincronização voltadas a uso prático no dia a dia.</p>
-                    <div class="flex flex-wrap gap-2 mb-8">
-                        <span class="px-3 py-1 rounded-full bg-slate-800 text-xs text-amber-400/80">Em evolução</span>
-                        <span class="px-3 py-1 rounded-full bg-slate-800 text-xs text-slate-300">Bluetooth</span>
-                    </div>
-                    <a href="mailto:tjsdeveloper.apps@gmail.com" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-400 hover:text-white transition-colors">
-                        Solicitar informações
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- LotoStrategy Showcase -->
-        <section id="lotostrategy" class="py-24 border-t border-slate-800/50">
-            <div class="glass-panel rounded-[2.5rem] p-8 md:p-12">
-                <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
-                    <div class="max-w-2xl">
-                        <!-- Nova seção de Header com a Logo do App -->
-                        <div class="flex items-center gap-5 mb-4">
-                            <img src="https://play-lh.googleusercontent.com/8t6SRDq04T6kKY1DytJ0_U3ukzSUev1g-t7MPVIWW4p_j5EX7WrT6se7pX6vOk9IHyU=w240-h480-rw" alt="LotoStrategy Logo" class="w-16 h-16 object-cover rounded-2xl shadow-[0_8px_30px_rgba(124,77,255,0.3)] border border-slate-700">
-                            <div>
-                                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-brand-purple/20 text-brand-purple text-xs font-bold uppercase tracking-widest mb-2">Destaque Visual</div>
-                                <h2 class="text-3xl md:text-5xl font-bold text-white leading-none">LotoStrategy Showcase</h2>
-                            </div>
-                        </div>
-                        <p class="text-slate-400 text-lg mt-4">Apresentação do aplicativo reunindo contexto, benefícios visuais da interface, recursos organizados por blocos e todas as screenshots da loja.</p>
-                    </div>
-                    <a href="https://play.google.com/store/apps/details?id=com.lotostrategy" target="_blank" rel="noopener" class="shrink-0 px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold transition-colors flex items-center gap-2">
-                        Abrir página do App
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                    </a>
-                </div>
-
-                <!-- Gallery Grid Completo (Aspect Video para acomodar as telas horizontais em formato mais reduzido) -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-                    <!-- Image 1 -->
-                    <div class="relative group rounded-xl overflow-hidden aspect-video bg-dark-800 shadow-md border border-slate-700/50 cursor-pointer">
-                        <img src="https://play-lh.googleusercontent.com/pEQmALb9x5XC_RULC7jCcPJcT3-V-qzqOzonEG10Y1_T3mMXMWQtmO_G76r9DO2wuh4T6MJjJxOq7KBaMN_kghY=w2560-h1440-rw" alt="Visão geral" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
-                            <span class="text-white font-semibold text-xs drop-shadow-md">Visão geral</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Image 2 -->
-                    <div class="relative group rounded-xl overflow-hidden aspect-video bg-dark-800 shadow-md border border-slate-700/50 cursor-pointer">
-                        <img src="https://play-lh.googleusercontent.com/2imbKS2E41jocQGpyMEIE80TFLQbrepheFC1GdWp6AnizjtV-mzmOot7JdNIC79PGQ6T_8-Xn0FYCTTiQKdX5Q=w526-h296-rw" alt="Apresentação" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
-                            <span class="text-white font-semibold text-xs drop-shadow-md">Apresentação</span>
-                        </div>
-                    </div>
-
-                    <!-- Image 3 -->
-                    <div class="relative group rounded-xl overflow-hidden aspect-video bg-dark-800 shadow-md border border-slate-700/50 cursor-pointer">
-                        <img src="https://play-lh.googleusercontent.com/GWLscPkn2kZbF6zxOGnVJyRGEcMDXDRRTYMdmBtvAVhV9FzpggTd_fUynuIXL1bv_7d1Ug7_H2eIEw0ALx-l3w=w2560-h1440-rw" alt="Estratégias" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
-                            <span class="text-white font-semibold text-xs drop-shadow-md">Estratégias</span>
-                        </div>
-                    </div>
-
-                    <!-- Image 4 -->
-                    <div class="relative group rounded-xl overflow-hidden aspect-video bg-dark-800 shadow-md border border-slate-700/50 cursor-pointer">
-                        <img src="https://play-lh.googleusercontent.com/w1N2jfEOk2UQG1M4jaNdyXTIpCR3pFl-LRW0x2IlNyDl-ALLmX9kraZdry5kIvth9L3DrTDkWdbZLHpnN__KRQ=w2560-h1440-rw" alt="Organização" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
-                            <span class="text-white font-semibold text-xs drop-shadow-md">Organização</span>
-                        </div>
-                    </div>
-
-                    <!-- Image 5 -->
-                    <div class="relative group rounded-xl overflow-hidden aspect-video bg-dark-800 shadow-md border border-slate-700/50 cursor-pointer">
-                        <img src="https://play-lh.googleusercontent.com/5dYbi_CcslOW4-BKuGPCpZsHUXSDq2ha7wS-ycX-azDfEfCMN13mRWDVTpPSaYEaHNCCxoD3TWJTomh4uR6fFA=w2560-h1440-rw" alt="Interface" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
-                            <span class="text-white font-semibold text-xs drop-shadow-md">Interface</span>
-                        </div>
-                    </div>
-
-                    <!-- Image 6 -->
-                    <div class="relative group rounded-xl overflow-hidden aspect-video bg-dark-800 shadow-md border border-slate-700/50 cursor-pointer">
-                        <img src="https://play-lh.googleusercontent.com/gGOpfl4QyMV5HHkVPcYsAkm_o16WChvcy8snL97F4lxp177Buck-78mfzQB1n_tSiH5yULFQ5kKg_jU4EglfWQ=w2560-h1440-rw" alt="Painel visual" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
-                            <span class="text-white font-semibold text-xs drop-shadow-md">Painel visual</span>
-                        </div>
-                    </div>
-
-                    <!-- Image 7 -->
-                    <div class="relative group rounded-xl overflow-hidden aspect-video bg-dark-800 shadow-md border border-slate-700/50 cursor-pointer">
-                        <img src="https://play-lh.googleusercontent.com/bkTyawzYzRAlzDxtue-i6mdCI2NL84VMCvYe9FsZN4Y6EfB5A9piOdJWZecSvtd0i93s9c77ffTYK7hN1u09-w=w2560-h1440-rw" alt="Fluxo de uso" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
-                            <span class="text-white font-semibold text-xs drop-shadow-md">Fluxo de uso</span>
-                        </div>
-                    </div>
-
-                    <!-- Image 8 -->
-                    <div class="relative group rounded-xl overflow-hidden aspect-video bg-dark-800 shadow-md border border-slate-700/50 cursor-pointer">
-                        <img src="https://play-lh.googleusercontent.com/ZCSijsQHf8eHlP6fdUB5j0FLCpct3hrglvl0DWgWWj41BHjTRo1VYgkFh74W2WW3o-uN3WPQllbH-gVdaiaGdg=w2560-h1440-rw" alt="Recursos extras" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
-                            <span class="text-white font-semibold text-xs drop-shadow-md">Recursos extras</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-8 border-t border-slate-700 pt-12">
-                    <div>
-                        <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                            <svg class="w-5 h-5 text-brand-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                            Aspectos de destaque
-                        </h3>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="p-4 rounded-2xl bg-dark-800/50 border border-slate-800">
-                                <b class="block text-white mb-1">Organização</b>
-                                <span class="text-xs text-slate-400">Leitura, agrupamento e navegação rápida.</span>
-                            </div>
-                            <div class="p-4 rounded-2xl bg-dark-800/50 border border-slate-800">
-                                <b class="block text-white mb-1">Visual</b>
-                                <span class="text-xs text-slate-400">Paleta forte e linguagem própria.</span>
-                            </div>
-                            <div class="p-4 rounded-2xl bg-dark-800/50 border border-slate-800">
-                                <b class="block text-white mb-1">Estrutura</b>
-                                <span class="text-xs text-slate-400">Padrões em um ecossistema coeso.</span>
-                            </div>
-                            <div class="p-4 rounded-2xl bg-dark-800/50 border border-slate-800">
-                                <b class="block text-white mb-1">Experiência</b>
-                                <span class="text-xs text-slate-400">Controle prático do processo.</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                            <svg class="w-5 h-5 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            Leitura do produto
-                        </h3>
-                        <div class="space-y-6">
-                            <div class="flex gap-4">
-                                <div class="w-8 h-8 rounded-full bg-slate-800 text-brand-cyan flex items-center justify-center font-bold shrink-0">1</div>
-                                <div>
-                                    <h4 class="text-white font-semibold mb-1">Entrada clara</h4>
-                                    <p class="text-sm text-slate-400">Primeiro impacto visual organizado, com linguagem direta e identidade reconhecível.</p>
-                                </div>
-                            </div>
-                            <div class="flex gap-4">
-                                <div class="w-8 h-8 rounded-full bg-slate-800 text-brand-cyan flex items-center justify-center font-bold shrink-0">2</div>
-                                <div>
-                                    <h4 class="text-white font-semibold mb-1">Camadas de recurso</h4>
-                                    <p class="text-sm text-slate-400">O app se apoia em blocos visuais para concentrar informações úteis.</p>
-                                </div>
-                            </div>
-                            <div class="flex gap-4">
-                                <div class="w-8 h-8 rounded-full bg-slate-800 text-brand-cyan flex items-center justify-center font-bold shrink-0">3</div>
-                                <div>
-                                    <h4 class="text-white font-semibold mb-1">Controle e acompanhamento</h4>
-                                    <p class="text-sm text-slate-400">Navegação prática, com melhor percepção de organização e leitura.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="mt-12 p-4 rounded-xl bg-brand-purple/10 border border-brand-purple/20 text-brand-purple/80 text-sm text-center">
-                    O LotoStrategy é apresentado aqui como ferramenta independente de apoio e organização. Esta página tem caráter institucional.
-                </div>
-            </div>
-        </section>
-
-        <!-- Institucional & Support -->
-        <section id="suporte" class="py-24 border-t border-slate-800/50">
-            <div class="grid lg:grid-cols-3 gap-8">
-                
-                <!-- Support Card -->
-                <div class="glass-panel p-8 rounded-3xl">
-                    <div class="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-3">Suporte e Contato</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-8">Para dúvidas, suporte técnico, sugestões ou informações sobre os aplicativos, utilize os canais oficiais.</p>
-                    
-                    <div class="flex flex-col gap-3">
-                        <button onclick="copyEmail()" class="w-full p-4 rounded-xl bg-white text-dark-900 font-bold hover:bg-slate-200 transition-colors flex items-center justify-center gap-2 group">
-                            <span>tjsdeveloper.apps@gmail.com</span>
-                            <svg class="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                        </button>
-                        <a href="https://github.com/tjsdeveloper" target="_blank" rel="noopener" class="w-full p-4 rounded-xl border border-slate-700 text-white font-semibold hover:bg-slate-800 transition-colors flex items-center justify-center gap-2">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                            Perfil no GitHub
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Presença Institucional -->
-                <div class="glass-panel p-8 rounded-3xl lg:col-span-2">
-                    <h3 class="text-2xl font-bold text-white mb-3">Presença Institucional</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-8">Este site funciona como página oficial, reunindo identidade, portfólio, links, políticas e informações úteis.</p>
-                    
-                    <div class="grid sm:grid-cols-2 gap-4">
-                        <div class="flex items-center gap-4 p-4 rounded-2xl bg-slate-800/50 border border-slate-700/50">
-                            <div class="w-10 h-10 rounded-full bg-brand-emerald/10 text-brand-emerald flex items-center justify-center shrink-0">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            </div>
-                            <div>
-                                <b class="block text-white text-sm">Site oficial</b>
-                                <span class="text-xs text-slate-400">tjsdeveloper.github.io</span>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-center gap-4 p-4 rounded-2xl bg-slate-800/50 border border-slate-700/50">
-                            <div class="w-10 h-10 rounded-full bg-brand-emerald/10 text-brand-emerald flex items-center justify-center shrink-0">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            </div>
-                            <div>
-                                <b class="block text-white text-sm">Arquivo app-ads.txt</b>
-                                <a href="/app-ads.txt" class="text-xs text-brand-cyan hover:underline">/app-ads.txt</a>
-                            </div>
-                        </div>
-
-                        <div class="sm:col-span-2 mt-4 p-5 rounded-2xl bg-gradient-to-r from-brand-purple/10 to-transparent border-l-4 border-brand-purple">
-                            <h4 class="text-white font-semibold mb-1">Nosso Compromisso</h4>
-                            <p class="text-sm text-slate-400">Desenvolver soluções úteis, objetivas e com identidade própria, mantendo um canal transparente de contato e apresentação pública clara.</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Privacidade -->
-        <section id="privacidade" class="py-24 border-t border-slate-800/50">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Privacidade e Transparência</h2>
-                <p class="text-slate-400 text-lg">Respeitamos a privacidade dos usuários. Os aplicativos utilizam apenas os dados e permissões estritamente necessários ao seu funcionamento e melhoria.</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="p-8 rounded-3xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-colors">
-                    <h3 class="text-xl font-bold text-white mb-3">Coleta e uso</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed">Processamento de informações técnicas do dispositivo, identificadores, dados de uso e permissões relacionadas exclusivamente às funcionalidades oferecidas. Integrações seguem as políticas dos provedores.</p>
-                </div>
-                
-                <div class="p-8 rounded-3xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-colors">
-                    <h3 class="text-xl font-bold text-white mb-3">Publicidade e Terceiros</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed">Plataformas de anúncios e serviços integrados podem utilizar dados técnicos para medição, prevenção de fraude, personalização ou análise de desempenho, dependendo do aplicativo.</p>
-                </div>
-                
-                <div class="p-8 rounded-3xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-colors">
-                    <h3 class="text-xl font-bold text-white mb-3">Solicitações e Dados</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed">Para suporte, dúvidas sobre privacidade, exclusão de contas ou solicitações relacionadas a dados, utilize sempre o e-mail de suporte oficial fornecido nesta página.</p>
-                </div>
-            </div>
-        </section>
-        
-    </main>
-
-    <!-- Footer -->
-    <footer class="border-t border-slate-800 bg-dark-900">
-        <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
-            <div class="text-slate-500 text-sm">
-                &copy; <span id="year"></span> TJSDeveloper. Todos os direitos reservados.
-            </div>
-            <div class="flex gap-4 text-sm text-slate-400">
-                <a href="#inicio" class="hover:text-white transition-colors">Início</a>
-                <span>•</span>
-                <a href="#apps" class="hover:text-white transition-colors">Apps</a>
-                <span>•</span>
-                <a href="#privacidade" class="hover:text-white transition-colors">Privacidade</a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Custom Toast Alert for Email Copy -->
-    <div id="toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 px-6 py-3 rounded-full bg-brand-emerald text-dark-900 font-bold shadow-[0_10px_40px_rgba(16,185,129,0.3)] flex items-center gap-2">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-        E-mail copiado para a área de transferência!
-    </div>
-
-    <!-- Scripts -->
-    <script>
-        // Set Current Year
-        document.getElementById("year").textContent = new Date().getFullYear();
-
-        // Copy Email Function
-        function copyEmail() {
-            navigator.clipboard.writeText("tjsdeveloper.apps@gmail.com").then(() => {
-                const toast = document.getElementById("toast");
-                toast.classList.add("show");
-                setTimeout(() => {
-                    toast.classList.remove("show");
-                }, 3000);
-            }).catch(err => {
-                console.error('Falha ao copiar:', err);
-                // Fallback method
-                const textArea = document.createElement("textarea");
-                textArea.value = "tjsdeveloper.apps@gmail.com";
-                document.body.appendChild(textArea);
-                textArea.select();
-                try {
-                    document.execCommand('copy');
-                    const toast = document.getElementById("toast");
-                    toast.classList.add("show");
-                    setTimeout(() => {
-                        toast.classList.remove("show");
-                    }, 3000);
-                } catch (err) {
-                    console.error('Fallback falhou:', err);
-                }
-                document.body.removeChild(textArea);
-            });
-        }
-    </script>
-</body>
-</html>
+<!DOCTYPE html><html lang="pt-BR" class="scroll-smooth"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#020617"><meta name="description" content="TJSDeveloper - aplicativos Android, soluções digitais, suporte, privacidade e portfólio oficial."><title>TJSDeveloper | Portfólio Oficial</title><!-- Google Fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"><!-- Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script><script>
+tailwind.config = {
+theme: {
+extend: {
+fontFamily: {
+sans: ['Inter', 'sans-serif'],
+},
+colors: {
+dark: {
+900: '#020617', // slate-950
+800: '#0f172a', // slate-900
+700: '#1e293b', // slate-800
+},
+brand: {
+purple: '#7c4dff',
+cyan: '#30cfff',
+emerald: '#10b981'
+}
+},
+backgroundImage: {
+'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+'hero-glow': 'conic-gradient(from 180deg at 50% 50%, #7c4dff55 0deg, #30cfff55 180deg, #7c4dff55 360deg)',
+}
+}
+}
+}
+</script><style>
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #020617; }
+::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #334155; }
+.glass-panel {
+background: rgba(15, 23, 42, 0.6);
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.text-gradient {
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+#toast {
+transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+transform: translateY(100%);
+opacity: 0;
+}
+#toast.show {
+transform: translateY(0);
+opacity: 1;
+}
+/* Showcase corrigido */
+.showcase-thumb {
+transition: transform .25s ease, border-color .25s ease, background .25s ease, opacity .25s ease;
+}
+.showcase-thumb.is-active {
+border-color: rgba(48, 207, 255, .85);
+background: rgba(48, 207, 255, .08);
+opacity: 1;
+}
+.showcase-thumb:not(.is-active) { opacity: .72; }
+.showcase-thumb:hover { transform: translateY(-2px); opacity: 1; }
+#showcaseModal {
+opacity: 0;
+pointer-events: none;
+transition: opacity .22s ease;
+}
+#showcaseModal.show {
+opacity: 1;
+pointer-events: auto;
+}
+</style></head><body class="bg-dark-900 text-slate-300 antialiased selection:bg-brand-purple/30 selection:text-white relative overflow-x-hidden"><!-- Background Effects --><div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none"><div class="absolute -top-[20%] -right-[10%] w-[70%] h-[70%] rounded-full bg-brand-purple/10 blur-[120px]"></div><div class="absolute top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-brand-cyan/10 blur-[120px]"></div><div class="absolute bottom-0 right-[20%] w-[60%] h-[60%] rounded-full bg-brand-purple/5 blur-[100px]"></div></div><!-- Header / Navbar --><header class="fixed top-0 w-full z-50 glass-panel border-b-0 border-slate-800/50"><div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between"><a href="#inicio" class="flex items-center gap-4 group"><div class="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-purple to-brand-cyan p-[1px] shadow-lg shadow-brand-purple/20 group-hover:shadow-brand-cyan/40 transition-shadow"><div class="w-full h-full bg-dark-900 rounded-[11px] flex items-center justify-center relative overflow-hidden"><div class="absolute inset-0 bg-gradient-to-br from-brand-purple/20 to-brand-cyan/20"></div><svg class="w-6 h-6 text-white relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg></div></div><div><strong class="block text-white text-lg font-bold tracking-tight">TJSDeveloper</strong><span class="block text-xs text-slate-400">Apps Android & Soluções</span></div></a><nav class="hidden md:flex items-center gap-8"><a href="#apps" class="text-sm font-medium hover:text-white transition-colors">Aplicativos</a><a href="#lotostrategy" class="text-sm font-medium hover:text-white transition-colors">LotoStrategy</a><a href="#suporte" class="text-sm font-medium hover:text-white transition-colors">Suporte</a><a href="#privacidade" class="text-sm font-medium hover:text-white transition-colors">Privacidade</a></nav></div></header><main id="inicio" class="pt-32 pb-20 px-6 max-w-7xl mx-auto"><!-- Hero Section --><section class="grid lg:grid-cols-2 gap-16 items-center min-h-[70vh]"><div class="space-y-8 relative z-10"><div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border-brand-purple/30 text-brand-cyan text-xs font-semibold uppercase tracking-wider"><span class="w-2 h-2 rounded-full bg-brand-emerald animate-pulse shadow-[0_0_10px_rgba(16,185,129,0.8)]"></span>
+Portfólio Oficial • Suporte
+</div><h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] tracking-tight">
+Tecnologia <span class="bg-gradient-to-r from-brand-purple to-brand-cyan text-gradient">prática</span>,<br>
+visual <span class="bg-gradient-to-r from-brand-cyan to-brand-purple text-gradient">profissional</span>.
+</h1><p class="text-lg text-slate-400 leading-relaxed max-w-xl">
+A <strong class="text-white font-semibold">TJSDeveloper</strong> desenvolve soluções Android voltadas para produtividade, organização e experiência de uso objetiva. Soluções focadas em resolver problemas reais.
+</p><div class="flex flex-wrap gap-4 pt-4"><a href="#lotostrategy" class="px-8 py-4 rounded-2xl bg-white text-dark-900 font-bold hover:bg-slate-200 transition-colors shadow-lg shadow-white/10 flex items-center gap-2">
+Conhecer Apps
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a><a href="mailto:tjsdeveloper.apps@gmail.com" class="px-8 py-4 rounded-2xl glass-panel text-white font-semibold hover:bg-white/10 transition-colors flex items-center gap-2">
+Entrar em contato
+</a></div><div class="grid grid-cols-3 gap-4 pt-8 border-t border-slate-800/50 mt-12"><div><b class="block text-white text-xl mb-1">Android</b><span class="text-sm text-slate-500">Foco em utilidade real e fluidez.</span></div><div><b class="block text-white text-xl mb-1">Suporte</b><span class="text-sm text-slate-500">Canal centralizado e direto.</span></div><div><b class="block text-white text-xl mb-1">Portfólio</b><span class="text-sm text-slate-500">Projetos em constante evolução.</span></div></div></div><!-- Modern Device Mockup (CSS only) --><div class="hidden lg:flex justify-center relative"><div class="absolute inset-0 bg-hero-glow blur-[100px] opacity-40 rounded-full"></div><div class="relative w-[320px] h-[650px] bg-dark-800 rounded-[3rem] p-3 shadow-2xl border border-slate-700/50 transform rotate-[-2deg] hover:rotate-0 transition-transform duration-700 ease-out z-10"><div class="absolute top-0 inset-x-0 flex justify-center"><div class="w-1/3 h-7 bg-dark-800 rounded-b-3xl z-20"></div></div><div class="w-full h-full bg-dark-900 rounded-[2.25rem] overflow-hidden border border-slate-800/80 relative flex flex-col"><div class="h-48 bg-gradient-to-br from-brand-purple to-brand-cyan p-6 flex flex-col justify-end"><span class="text-white/80 text-xs font-semibold uppercase tracking-wider mb-1">TJSDeveloper</span><h3 class="text-white text-2xl font-bold leading-tight">Design com foco em clareza</h3></div><div class="flex-1 p-6 space-y-4"><div class="flex gap-2"><div class="px-3 py-1.5 rounded-full bg-slate-800 text-xs text-brand-cyan font-medium">Apps</div><div class="px-3 py-1.5 rounded-full bg-slate-800 text-xs text-white font-medium">Suporte</div></div><div class="p-4 rounded-2xl bg-slate-800/50 border border-slate-700/50"><div class="w-8 h-8 rounded-lg bg-brand-purple/20 flex items-center justify-center mb-3"><svg class="w-4 h-4 text-brand-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg></div><strong class="block text-white text-sm mb-1">Visual Moderno</strong><span class="text-xs text-slate-400">Interfaces diretas e limpas</span></div><div class="p-4 rounded-2xl bg-slate-800/50 border border-slate-700/50"><div class="w-8 h-8 rounded-lg bg-brand-cyan/20 flex items-center justify-center mb-3"><svg class="w-4 h-4 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></div><strong class="block text-white text-sm mb-1">Praticidade</strong><span class="text-xs text-slate-400">Ferramentas para uso real</span></div></div></div></div></div></section><!-- Apps Section --><section id="apps" class="py-24 border-t border-slate-800/50"><div class="max-w-3xl mb-16"><h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Aplicativos e Soluções</h2><p class="text-slate-400 text-lg">Uma seleção de projetos publicados e em evolução. Cada aplicativo possui objetivo específico, linguagem visual própria e proposta orientada à praticidade.</p></div><div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"><!-- App 1 --><div class="glass-panel p-8 rounded-3xl hover:-translate-y-2 transition-all duration-300 group"><div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-2xl font-bold text-white shadow-lg mb-6 group-hover:scale-110 transition-transform">ƒ</div><h3 class="text-2xl font-bold text-white mb-3">fiimulator</h3><p class="text-slate-400 text-sm leading-relaxed mb-6">Aplicativo voltado à organização e simulação de cenários relacionados a dividendos, acompanhamento e tomada de decisão de forma mais prática e visual.</p><div class="flex flex-wrap gap-2 mb-8"><span class="px-3 py-1 rounded-full bg-slate-800 text-xs text-slate-300">Finanças</span><span class="px-3 py-1 rounded-full bg-slate-800 text-xs text-slate-300">Produtividade</span></div><a href="https://play.google.com/store/apps/details?id=com.fiimulator" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-semibold text-brand-cyan hover:text-white transition-colors">
+Ver na Google Play
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a></div><!-- App 2 --><div class="glass-panel p-8 rounded-3xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden group"><div class="absolute top-0 right-0 w-32 h-32 bg-brand-purple/10 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500"></div><div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-purple to-brand-cyan flex items-center justify-center text-2xl font-bold text-white shadow-lg mb-6 group-hover:scale-110 transition-transform">L</div><h3 class="text-2xl font-bold text-white mb-3">LotoStrategy</h3><p class="text-slate-400 text-sm leading-relaxed mb-6">Ferramenta independente de apoio para organização, visualização de padrões, montagem e acompanhamento de combinações da Lotofácil.</p><div class="flex flex-wrap gap-2 mb-8"><span class="px-3 py-1 rounded-full bg-slate-800 text-xs text-slate-300">Estratégia</span><span class="px-3 py-1 rounded-full bg-slate-800 text-xs text-slate-300">Organização</span></div><div class="flex gap-4"><a href="https://play.google.com/store/apps/details?id=com.lotostrategy" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-semibold text-brand-purple hover:text-white transition-colors">
+Google Play
+</a><a href="#lotostrategy" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-400 hover:text-white transition-colors">
+Ver detalhes &rarr;
+</a></div></div><!-- App 3 --><div class="glass-panel p-8 rounded-3xl hover:-translate-y-2 transition-all duration-300 group opacity-80 hover:opacity-100 border-dashed border-slate-700"><div class="w-16 h-16 rounded-2xl bg-slate-800 flex items-center justify-center text-xl font-bold text-slate-400 shadow-inner mb-6">BT</div><h3 class="text-2xl font-bold text-white mb-3">TJSyncBT</h3><p class="text-slate-400 text-sm leading-relaxed mb-6">Projeto em evolução dentro do ecossistema, com foco em utilidade técnica, conexão e sincronização voltadas a uso prático no dia a dia.</p><div class="flex flex-wrap gap-2 mb-8"><span class="px-3 py-1 rounded-full bg-slate-800 text-xs text-amber-400/80">Em evolução</span><span class="px-3 py-1 rounded-full bg-slate-800 text-xs text-slate-300">Bluetooth</span></div><a href="mailto:tjsdeveloper.apps@gmail.com" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-400 hover:text-white transition-colors">
+Solicitar informações
+</a></div></div></section><!-- LotoStrategy Showcase --><section id="lotostrategy" class="py-24 border-t border-slate-800/50"><div class="glass-panel rounded-[2.5rem] p-6 md:p-10 lg:p-12 overflow-hidden relative"><div class="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-brand-purple/20 blur-[90px] pointer-events-none"></div><div class="absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-brand-cyan/10 blur-[90px] pointer-events-none"></div><div class="relative z-10 flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-10"><div class="max-w-3xl"><div class="flex items-center gap-5 mb-5"><img src="https://play-lh.googleusercontent.com/8t6SRDq04T6kKY1DytJ0_U3ukzSUev1g-t7MPVIWW4p_j5EX7WrT6se7pX6vOk9IHyU=w240-h480-rw" alt="LotoStrategy Logo" class="w-16 h-16 object-cover rounded-2xl shadow-[0_8px_30px_rgba(124,77,255,0.35)] border border-slate-700"><div><div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-brand-purple/20 text-brand-purple text-xs font-bold uppercase tracking-widest mb-2">Showcase corrigido</div><h2 class="text-3xl md:text-5xl font-bold text-white leading-tight">LotoStrategy</h2></div></div><p class="text-slate-400 text-lg leading-relaxed">
+Uma vitrine visual do app com preview grande, miniaturas organizadas e imagem sem cortes. As telas são exibidas com proporção preservada para evitar distorção ou perda de informação.
+</p></div><a href="https://play.google.com/store/apps/details?id=com.lotostrategy" target="_blank" rel="noopener" class="shrink-0 px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold transition-colors flex items-center justify-center gap-2">
+Abrir página do App
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a></div><div class="relative z-10 grid xl:grid-cols-[1.45fr_.9fr] gap-8 items-start"><div class="rounded-[2rem] bg-dark-900/80 border border-slate-700/70 p-3 md:p-5 shadow-2xl shadow-black/30"><div class="relative rounded-[1.5rem] overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 border border-slate-800 min-h-[230px] md:min-h-[420px] flex items-center justify-center"><div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(124,77,255,.20),transparent_45%),radial-gradient(circle_at_80%_80%,rgba(48,207,255,.14),transparent_35%)]"></div><img id="showcaseMainImage" src="https://play-lh.googleusercontent.com/pEQmALb9x5XC_RULC7jCcPJcT3-V-qzqOzonEG10Y1_T3mMXMWQtmO_G76r9DO2wuh4T6MJjJxOq7KBaMN_kghY=w2560-h1440-rw" alt="Visão geral do LotoStrategy" class="relative z-10 w-full h-full max-h-[520px] object-contain p-1 md:p-3"><button type="button" onclick="openShowcaseModal()" class="absolute right-4 bottom-4 z-20 px-4 py-2 rounded-xl bg-white text-dark-900 text-sm font-bold hover:bg-slate-200 transition-colors shadow-lg">
+Ampliar
+</button></div><div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mt-5"><div><h3 id="showcaseTitle" class="text-white text-xl font-bold">Visão geral</h3><p id="showcaseDescription" class="text-slate-400 text-sm mt-1">Tela principal apresentada em formato amplo, sem corte lateral.</p></div><div class="flex items-center gap-2 text-xs text-slate-500"><span class="w-2 h-2 rounded-full bg-brand-emerald"></span>
+Proporção preservada com object-contain
+</div></div></div><div class="space-y-5"><div class="grid grid-cols-2 sm:grid-cols-4 xl:grid-cols-2 gap-3"><button type="button" class="showcase-thumb is-active text-left rounded-2xl border border-brand-cyan/80 bg-brand-cyan/10 p-2" onclick="setShowcaseImage(this,'https://play-lh.googleusercontent.com/pEQmALb9x5XC_RULC7jCcPJcT3-V-qzqOzonEG10Y1_T3mMXMWQtmO_G76r9DO2wuh4T6MJjJxOq7KBaMN_kghY=w2560-h1440-rw','Visão geral','Tela principal apresentada em formato amplo, sem corte lateral.','Visão geral do LotoStrategy')"><span class="block rounded-xl overflow-hidden bg-dark-800 aspect-video mb-2"><img src="https://play-lh.googleusercontent.com/pEQmALb9x5XC_RULC7jCcPJcT3-V-qzqOzonEG10Y1_T3mMXMWQtmO_G76r9DO2wuh4T6MJjJxOq7KBaMN_kghY=w526-h296-rw" alt="Miniatura: visão geral" class="w-full h-full object-contain"></span><span class="block text-white text-xs font-bold">Visão geral</span></button><button type="button" class="showcase-thumb text-left rounded-2xl border border-slate-700 bg-slate-900/50 p-2" onclick="setShowcaseImage(this,'https://play-lh.googleusercontent.com/2imbKS2E41jocQGpyMEIE80TFLQbrepheFC1GdWp6AnizjtV-mzmOot7JdNIC79PGQ6T_8-Xn0FYCTTiQKdX5Q=w526-h296-rw','Apresentação','Imagem de apresentação mantida em tamanho real, sem esticar nem cortar.','Apresentação do app')"><span class="block rounded-xl overflow-hidden bg-dark-800 aspect-video mb-2"><img src="https://play-lh.googleusercontent.com/2imbKS2E41jocQGpyMEIE80TFLQbrepheFC1GdWp6AnizjtV-mzmOot7JdNIC79PGQ6T_8-Xn0FYCTTiQKdX5Q=w526-h296-rw" alt="Miniatura: apresentação" class="w-full h-full object-contain"></span><span class="block text-white text-xs font-bold">Apresentação</span></button><button type="button" class="showcase-thumb text-left rounded-2xl border border-slate-700 bg-slate-900/50 p-2" onclick="setShowcaseImage(this,'https://play-lh.googleusercontent.com/GWLscPkn2kZbF6zxOGnVJyRGEcMDXDRRTYMdmBtvAVhV9FzpggTd_fUynuIXL1bv_7d1Ug7_H2eIEw0ALx-l3w=w2560-h1440-rw','Estratégias','Área de recursos estratégicos exibida em preview grande para leitura melhor.','Estratégias do LotoStrategy')"><span class="block rounded-xl overflow-hidden bg-dark-800 aspect-video mb-2"><img src="https://play-lh.googleusercontent.com/GWLscPkn2kZbF6zxOGnVJyRGEcMDXDRRTYMdmBtvAVhV9FzpggTd_fUynuIXL1bv_7d1Ug7_H2eIEw0ALx-l3w=w526-h296-rw" alt="Miniatura: estratégias" class="w-full h-full object-contain"></span><span class="block text-white text-xs font-bold">Estratégias</span></button><button type="button" class="showcase-thumb text-left rounded-2xl border border-slate-700 bg-slate-900/50 p-2" onclick="setShowcaseImage(this,'https://play-lh.googleusercontent.com/w1N2jfEOk2UQG1M4jaNdyXTIpCR3pFl-LRW0x2IlNyDl-ALLmX9kraZdry5kIvth9L3DrTDkWdbZLHpnN__KRQ=w2560-h1440-rw','Organização','Tela de organização com enquadramento limpo e proporção correta.','Organização no app')"><span class="block rounded-xl overflow-hidden bg-dark-800 aspect-video mb-2"><img src="https://play-lh.googleusercontent.com/w1N2jfEOk2UQG1M4jaNdyXTIpCR3pFl-LRW0x2IlNyDl-ALLmX9kraZdry5kIvth9L3DrTDkWdbZLHpnN__KRQ=w526-h296-rw" alt="Miniatura: organização" class="w-full h-full object-contain"></span><span class="block text-white text-xs font-bold">Organização</span></button><button type="button" class="showcase-thumb text-left rounded-2xl border border-slate-700 bg-slate-900/50 p-2" onclick="setShowcaseImage(this,'https://play-lh.googleusercontent.com/5dYbi_CcslOW4-BKuGPCpZsHUXSDq2ha7wS-ycX-azDfEfCMN13mRWDVTpPSaYEaHNCCxoD3TWJTomh4uR6fFA=w2560-h1440-rw','Interface','Demonstração da interface com foco em leitura e apresentação institucional.','Interface do LotoStrategy')"><span class="block rounded-xl overflow-hidden bg-dark-800 aspect-video mb-2"><img src="https://play-lh.googleusercontent.com/5dYbi_CcslOW4-BKuGPCpZsHUXSDq2ha7wS-ycX-azDfEfCMN13mRWDVTpPSaYEaHNCCxoD3TWJTomh4uR6fFA=w526-h296-rw" alt="Miniatura: interface" class="w-full h-full object-contain"></span><span class="block text-white text-xs font-bold">Interface</span></button><button type="button" class="showcase-thumb text-left rounded-2xl border border-slate-700 bg-slate-900/50 p-2" onclick="setShowcaseImage(this,'https://play-lh.googleusercontent.com/gGOpfl4QyMV5HHkVPcYsAkm_o16WChvcy8snL97F4lxp177Buck-78mfzQB1n_tSiH5yULFQ5kKg_jU4EglfWQ=w2560-h1440-rw','Painel visual','Painel visual em destaque, sem deformação no card principal.','Painel visual do app')"><span class="block rounded-xl overflow-hidden bg-dark-800 aspect-video mb-2"><img src="https://play-lh.googleusercontent.com/gGOpfl4QyMV5HHkVPcYsAkm_o16WChvcy8snL97F4lxp177Buck-78mfzQB1n_tSiH5yULFQ5kKg_jU4EglfWQ=w526-h296-rw" alt="Miniatura: painel visual" class="w-full h-full object-contain"></span><span class="block text-white text-xs font-bold">Painel visual</span></button><button type="button" class="showcase-thumb text-left rounded-2xl border border-slate-700 bg-slate-900/50 p-2" onclick="setShowcaseImage(this,'https://play-lh.googleusercontent.com/bkTyawzYzRAlzDxtue-i6mdCI2NL84VMCvYe9FsZN4Y6EfB5A9piOdJWZecSvtd0i93s9c77ffTYK7hN1u09-w=w2560-h1440-rw','Fluxo de uso','Fluxo de uso apresentado como vitrine clicável, com navegação rápida.','Fluxo de uso do app')"><span class="block rounded-xl overflow-hidden bg-dark-800 aspect-video mb-2"><img src="https://play-lh.googleusercontent.com/bkTyawzYzRAlzDxtue-i6mdCI2NL84VMCvYe9FsZN4Y6EfB5A9piOdJWZecSvtd0i93s9c77ffTYK7hN1u09-w=w526-h296-rw" alt="Miniatura: fluxo de uso" class="w-full h-full object-contain"></span><span class="block text-white text-xs font-bold">Fluxo de uso</span></button><button type="button" class="showcase-thumb text-left rounded-2xl border border-slate-700 bg-slate-900/50 p-2" onclick="setShowcaseImage(this,'https://play-lh.googleusercontent.com/ZCSijsQHf8eHlP6fdUB5j0FLCpct3hrglvl0DWgWWj41BHjTRo1VYgkFh74W2WW3o-uN3WPQllbH-gVdaiaGdg=w2560-h1440-rw','Recursos extras','Recursos adicionais apresentados com visual limpo e sem recorte agressivo.','Recursos extras do LotoStrategy')"><span class="block rounded-xl overflow-hidden bg-dark-800 aspect-video mb-2"><img src="https://play-lh.googleusercontent.com/ZCSijsQHf8eHlP6fdUB5j0FLCpct3hrglvl0DWgWWj41BHjTRo1VYgkFh74W2WW3o-uN3WPQllbH-gVdaiaGdg=w526-h296-rw" alt="Miniatura: recursos extras" class="w-full h-full object-contain"></span><span class="block text-white text-xs font-bold">Recursos extras</span></button></div><div class="p-5 rounded-3xl bg-dark-800/50 border border-slate-800"><h3 class="text-white font-bold mb-3 flex items-center gap-2"><svg class="w-5 h-5 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M4 6h8a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2z"></path></svg>
+O que foi corrigido
+</h3><div class="grid sm:grid-cols-2 xl:grid-cols-1 gap-3"><div class="p-4 rounded-2xl bg-slate-900/70 border border-slate-700/60"><b class="block text-white text-sm mb-1">Sem corte de imagem</b><span class="text-xs text-slate-400">Troca de object-cover por object-contain nas telas.</span></div><div class="p-4 rounded-2xl bg-slate-900/70 border border-slate-700/60"><b class="block text-white text-sm mb-1">Preview principal</b><span class="text-xs text-slate-400">Uma tela grande recebe o foco e melhora a leitura.</span></div><div class="p-4 rounded-2xl bg-slate-900/70 border border-slate-700/60"><b class="block text-white text-sm mb-1">Miniaturas úteis</b><span class="text-xs text-slate-400">As imagens viraram controles de navegação do showcase.</span></div></div></div></div></div><div class="relative z-10 mt-10 grid md:grid-cols-2 gap-8 border-t border-slate-700/70 pt-10"><div><h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2"><svg class="w-5 h-5 text-brand-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+Aspectos de destaque
+</h3><div class="grid grid-cols-2 gap-4"><div class="p-4 rounded-2xl bg-dark-800/50 border border-slate-800"><b class="block text-white mb-1">Organização</b><span class="text-xs text-slate-400">Leitura, agrupamento e navegação rápida.</span></div><div class="p-4 rounded-2xl bg-dark-800/50 border border-slate-800"><b class="block text-white mb-1">Visual</b><span class="text-xs text-slate-400">Paleta forte e linguagem própria.</span></div><div class="p-4 rounded-2xl bg-dark-800/50 border border-slate-800"><b class="block text-white mb-1">Estrutura</b><span class="text-xs text-slate-400">Padrões em um ecossistema coeso.</span></div><div class="p-4 rounded-2xl bg-dark-800/50 border border-slate-800"><b class="block text-white mb-1">Experiência</b><span class="text-xs text-slate-400">Controle prático do processo.</span></div></div></div><div><h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2"><svg class="w-5 h-5 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+Leitura do produto
+</h3><div class="space-y-6"><div class="flex gap-4"><div class="w-8 h-8 rounded-full bg-slate-800 text-brand-cyan flex items-center justify-center font-bold shrink-0">1</div><div><h4 class="text-white font-semibold mb-1">Entrada clara</h4><p class="text-sm text-slate-400">Primeiro impacto visual organizado, com linguagem direta e identidade reconhecível.</p></div></div><div class="flex gap-4"><div class="w-8 h-8 rounded-full bg-slate-800 text-brand-cyan flex items-center justify-center font-bold shrink-0">2</div><div><h4 class="text-white font-semibold mb-1">Camadas de recurso</h4><p class="text-sm text-slate-400">O app se apoia em blocos visuais para concentrar informações úteis.</p></div></div><div class="flex gap-4"><div class="w-8 h-8 rounded-full bg-slate-800 text-brand-cyan flex items-center justify-center font-bold shrink-0">3</div><div><h4 class="text-white font-semibold mb-1">Controle e acompanhamento</h4><p class="text-sm text-slate-400">Navegação prática, com melhor percepção de organização e leitura.</p></div></div></div></div></div><div class="relative z-10 mt-10 p-4 rounded-xl bg-brand-purple/10 border border-brand-purple/20 text-brand-purple/80 text-sm text-center">
+O LotoStrategy é apresentado aqui como ferramenta independente de apoio e organização. Esta página tem caráter institucional.
+</div></div><div id="showcaseModal" class="fixed inset-0 z-[80] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4" onclick="closeShowcaseModal()"><div class="relative max-w-6xl w-full" onclick="event.stopPropagation()"><button type="button" onclick="closeShowcaseModal()" class="absolute -top-12 right-0 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold">Fechar</button><div class="rounded-3xl bg-slate-950 border border-slate-700 p-3 shadow-2xl"><img id="showcaseModalImage" src="https://play-lh.googleusercontent.com/pEQmALb9x5XC_RULC7jCcPJcT3-V-qzqOzonEG10Y1_T3mMXMWQtmO_G76r9DO2wuh4T6MJjJxOq7KBaMN_kghY=w2560-h1440-rw" alt="Imagem ampliada do LotoStrategy" class="w-full max-h-[82vh] object-contain rounded-2xl"></div></div></div></section><!-- Institucional & Support --><section id="suporte" class="py-24 border-t border-slate-800/50"><div class="grid lg:grid-cols-3 gap-8"><!-- Support Card --><div class="glass-panel p-8 rounded-3xl"><div class="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center mb-6"><svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></div><h3 class="text-2xl font-bold text-white mb-3">Suporte e Contato</h3><p class="text-slate-400 text-sm leading-relaxed mb-8">Para dúvidas, suporte técnico, sugestões ou informações sobre os aplicativos, utilize os canais oficiais.</p><div class="flex flex-col gap-3"><button onclick="copyEmail()" class="w-full p-4 rounded-xl bg-white text-dark-900 font-bold hover:bg-slate-200 transition-colors flex items-center justify-center gap-2 group"><span>tjsdeveloper.apps@gmail.com</span><svg class="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg></button><a href="https://github.com/tjsdeveloper" target="_blank" rel="noopener" class="w-full p-4 rounded-xl border border-slate-700 text-white font-semibold hover:bg-slate-800 transition-colors flex items-center justify-center gap-2"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+Perfil no GitHub
+</a></div></div><!-- Presença Institucional --><div class="glass-panel p-8 rounded-3xl lg:col-span-2"><h3 class="text-2xl font-bold text-white mb-3">Presença Institucional</h3><p class="text-slate-400 text-sm leading-relaxed mb-8">Este site funciona como página oficial, reunindo identidade, portfólio, links, políticas e informações úteis.</p><div class="grid sm:grid-cols-2 gap-4"><div class="flex items-center gap-4 p-4 rounded-2xl bg-slate-800/50 border border-slate-700/50"><div class="w-10 h-10 rounded-full bg-brand-emerald/10 text-brand-emerald flex items-center justify-center shrink-0"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div><div><b class="block text-white text-sm">Site oficial</b><span class="text-xs text-slate-400">tjsdeveloper.github.io</span></div></div><div class="flex items-center gap-4 p-4 rounded-2xl bg-slate-800/50 border border-slate-700/50"><div class="w-10 h-10 rounded-full bg-brand-emerald/10 text-brand-emerald flex items-center justify-center shrink-0"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div><div><b class="block text-white text-sm">Arquivo app-ads.txt</b><a href="/app-ads.txt" class="text-xs text-brand-cyan hover:underline">/app-ads.txt</a></div></div><div class="sm:col-span-2 mt-4 p-5 rounded-2xl bg-gradient-to-r from-brand-purple/10 to-transparent border-l-4 border-brand-purple"><h4 class="text-white font-semibold mb-1">Nosso Compromisso</h4><p class="text-sm text-slate-400">Desenvolver soluções úteis, objetivas e com identidade própria, mantendo um canal transparente de contato e apresentação pública clara.</p></div></div></div></div></section><!-- Privacidade --><section id="privacidade" class="py-24 border-t border-slate-800/50"><div class="text-center max-w-2xl mx-auto mb-16"><h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Privacidade e Transparência</h2><p class="text-slate-400 text-lg">Respeitamos a privacidade dos usuários. Os aplicativos utilizam apenas os dados e permissões estritamente necessários ao seu funcionamento e melhoria.</p></div><div class="grid md:grid-cols-3 gap-6"><div class="p-8 rounded-3xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-colors"><h3 class="text-xl font-bold text-white mb-3">Coleta e uso</h3><p class="text-sm text-slate-400 leading-relaxed">Processamento de informações técnicas do dispositivo, identificadores, dados de uso e permissões relacionadas exclusivamente às funcionalidades oferecidas. Integrações seguem as políticas dos provedores.</p></div><div class="p-8 rounded-3xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-colors"><h3 class="text-xl font-bold text-white mb-3">Publicidade e Terceiros</h3><p class="text-sm text-slate-400 leading-relaxed">Plataformas de anúncios e serviços integrados podem utilizar dados técnicos para medição, prevenção de fraude, personalização ou análise de desempenho, dependendo do aplicativo.</p></div><div class="p-8 rounded-3xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-colors"><h3 class="text-xl font-bold text-white mb-3">Solicitações e Dados</h3><p class="text-sm text-slate-400 leading-relaxed">Para suporte, dúvidas sobre privacidade, exclusão de contas ou solicitações relacionadas a dados, utilize sempre o e-mail de suporte oficial fornecido nesta página.</p></div></div></section></main><!-- Footer --><footer class="border-t border-slate-800 bg-dark-900"><div class="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4"><div class="text-slate-500 text-sm">
+&copy; <span id="year"></span> TJSDeveloper. Todos os direitos reservados.
+</div><div class="flex gap-4 text-sm text-slate-400"><a href="#inicio" class="hover:text-white transition-colors">Início</a><span>•</span><a href="#apps" class="hover:text-white transition-colors">Apps</a><span>•</span><a href="#privacidade" class="hover:text-white transition-colors">Privacidade</a></div></div></footer><!-- Custom Toast Alert for Email Copy --><div id="toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 px-6 py-3 rounded-full bg-brand-emerald text-dark-900 font-bold shadow-[0_10px_40px_rgba(16,185,129,0.3)] flex items-center gap-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+E-mail copiado para a área de transferência!
+</div><!-- Scripts --><script>
+// Set Current Year
+document.getElementById("year").textContent = new Date().getFullYear();
+// Copy Email Function
+function copyEmail() {
+navigator.clipboard.writeText("tjsdeveloper.apps@gmail.com").then(() => {
+const toast = document.getElementById("toast");
+toast.classList.add("show");
+setTimeout(() => {
+toast.classList.remove("show");
+}, 3000);
+}).catch(err => {
+console.error('Falha ao copiar:', err);
+// Fallback method
+const textArea = document.createElement("textarea");
+textArea.value = "tjsdeveloper.apps@gmail.com";
+document.body.appendChild(textArea);
+textArea.select();
+try {
+document.execCommand('copy');
+const toast = document.getElementById("toast");
+toast.classList.add("show");
+setTimeout(() => {
+toast.classList.remove("show");
+}, 3000);
+} catch (err) {
+console.error('Fallback falhou:', err);
+}
+document.body.removeChild(textArea);
+});
+}
+// LotoStrategy Showcase
+function setShowcaseImage(button, src, title, description, alt) {
+const mainImage = document.getElementById("showcaseMainImage");
+const modalImage = document.getElementById("showcaseModalImage");
+const titleEl = document.getElementById("showcaseTitle");
+const descriptionEl = document.getElementById("showcaseDescription");
+if (mainImage) {
+mainImage.src = src;
+mainImage.alt = alt || title;
+}
+if (modalImage) {
+modalImage.src = src;
+modalImage.alt = alt || title;
+}
+if (titleEl) titleEl.textContent = title;
+if (descriptionEl) descriptionEl.textContent = description;
+document.querySelectorAll(".showcase-thumb").forEach(item => {
+item.classList.remove("is-active", "border-brand-cyan/80", "bg-brand-cyan/10");
+item.classList.add("border-slate-700", "bg-slate-900/50");
+});
+if (button) {
+button.classList.add("is-active", "border-brand-cyan/80", "bg-brand-cyan/10");
+button.classList.remove("border-slate-700", "bg-slate-900/50");
+}
+}
+function openShowcaseModal() {
+const modal = document.getElementById("showcaseModal");
+if (!modal) return;
+modal.classList.add("show");
+document.body.style.overflow = "hidden";
+}
+function closeShowcaseModal() {
+const modal = document.getElementById("showcaseModal");
+if (!modal) return;
+modal.classList.remove("show");
+document.body.style.overflow = "";
+}
+document.addEventListener("keydown", function(event) {
+if (event.key === "Escape") closeShowcaseModal();
+});
+</script></body></html>
