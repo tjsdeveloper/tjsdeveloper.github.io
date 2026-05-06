@@ -134,7 +134,7 @@
                 </p>
                 
                 <div class="flex flex-wrap gap-4 pt-4">
-                    <a href="#lotostrategy" class="px-8 py-4 rounded-2xl bg-white text-dark-900 font-bold hover:bg-slate-200 transition-colors shadow-lg shadow-white/10 flex items-center gap-2">
+                    <a href="#apps" class="px-8 py-4 rounded-2xl bg-white text-dark-900 font-bold hover:bg-slate-200 transition-colors shadow-lg shadow-white/10 flex items-center gap-2">
                         Conhecer Apps
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                     </a>
@@ -240,17 +240,24 @@
                 </div>
 
                 <!-- App 3 -->
-                <div class="glass-panel p-8 rounded-3xl hover:-translate-y-2 transition-all duration-300 group opacity-80 hover:opacity-100 border-dashed border-slate-700">
-                    <div class="w-16 h-16 rounded-2xl bg-slate-800 flex items-center justify-center text-xl font-bold text-slate-400 shadow-inner mb-6">BT</div>
+                <div class="glass-panel p-8 rounded-3xl hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-brand-cyan/10 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500"></div>
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-sky-500 to-blue-700 flex items-center justify-center text-xl font-bold text-white shadow-lg shadow-sky-500/20 mb-6 group-hover:scale-110 transition-transform">BT</div>
                     <h3 class="text-2xl font-bold text-white mb-3">TJSyncBT</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Projeto em evolução dentro do ecossistema, com foco em utilidade técnica, conexão e sincronização voltadas a uso prático no dia a dia.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Aplicativo Android para impressão térmica via Bluetooth, com suporte a PDF, TXT, imagens, perfis ESC/POS, testes de conexão e liberação premium individual ou institucional.</p>
                     <div class="flex flex-wrap gap-2 mb-8">
-                        <span class="px-3 py-1 rounded-full bg-slate-800 text-xs text-amber-400/80">Em evolução</span>
+                        <span class="px-3 py-1 rounded-full bg-slate-800 text-xs text-sky-300">Impressão térmica</span>
                         <span class="px-3 py-1 rounded-full bg-slate-800 text-xs text-slate-300">Bluetooth</span>
+                        <span class="px-3 py-1 rounded-full bg-slate-800 text-xs text-slate-300">ESC/POS</span>
                     </div>
-                    <a href="mailto:tjsdeveloper.apps@gmail.com" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-400 hover:text-white transition-colors">
-                        Solicitar informações
-                    </a>
+                    <div class="flex gap-4">
+                        <a href="https://play.google.com/store/apps/details?id=com.tjsdeveloper.tjsyncbt" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-semibold text-brand-cyan hover:text-white transition-colors">
+                            Google Play
+                        </a>
+                        <a href="politicas/tjsyncbt.html" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-400 hover:text-white transition-colors">
+                            Política de privacidade &rarr;
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -485,7 +492,7 @@
             </div>
 
             <div class="grid lg:grid-cols-3 gap-6 mb-10">
-                <div class="glass-panel p-8 rounded-3xl lg:col-span-2 relative overflow-hidden group">
+                <div class="glass-panel p-8 rounded-3xl relative overflow-hidden group">
                     <div class="absolute top-0 right-0 w-40 h-40 bg-brand-purple/10 rounded-bl-full -z-10 group-hover:scale-125 transition-transform duration-500"></div>
                     <div class="flex flex-col sm:flex-row sm:items-center gap-5 mb-6">
                         <img src="https://play-lh.googleusercontent.com/8t6SRDq04T6kKY1DytJ0_U3ukzSUev1g-t7MPVIWW4p_j5EX7WrT6se7pX6vOk9IHyU=w240-h480-rw" alt="LotoStrategy Logo" class="w-16 h-16 object-cover rounded-2xl shadow-[0_8px_30px_rgba(124,77,255,0.3)] border border-slate-700">
@@ -508,16 +515,39 @@
                     </div>
                 </div>
 
+                <div class="glass-panel p-8 rounded-3xl relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-40 h-40 bg-brand-cyan/10 rounded-bl-full -z-10 group-hover:scale-125 transition-transform duration-500"></div>
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-5 mb-6">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-sky-500 to-blue-700 flex items-center justify-center text-xl font-bold text-white shadow-[0_8px_30px_rgba(14,165,233,0.28)] border border-sky-400/30">BT</div>
+                        <div>
+                            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-brand-cyan/20 text-brand-cyan text-xs font-bold uppercase tracking-widest mb-2">Política disponível</span>
+                            <h3 class="text-2xl font-bold text-white">TJSyncBT</h3>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-8">
+                        Consulte a política de privacidade do app de impressão térmica, incluindo arquivos compartilhados, Bluetooth, Firebase institucional/corporativo, compras pela Play e anúncios LevelPlay.
+                    </p>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="politicas/tjsyncbt.html" target="_blank" rel="noopener" class="px-6 py-3 rounded-xl bg-white text-dark-900 font-bold hover:bg-slate-200 transition-colors inline-flex items-center gap-2">
+                            Ver Política de Privacidade
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.tjsdeveloper.tjsyncbt" target="_blank" rel="noopener" class="px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold transition-colors inline-flex items-center gap-2">
+                            Ver app na Google Play
+                        </a>
+                    </div>
+                </div>
+
                 <div class="glass-panel p-8 rounded-3xl">
                     <div class="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center mb-6">
                         <svg class="w-6 h-6 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0-1.105.895-2 2-2s2 .895 2 2-.895 2-2 2-2-.895-2-2zm0 0V7a4 4 0 118 0v4m-8 0H8a4 4 0 00-4 4v3a2 2 0 002 2h12a2 2 0 002-2v-3a4 4 0 00-4-4h-4z"></path></svg>
                     </div>
                     <h3 class="text-2xl font-bold text-white mb-3">Canal oficial</h3>
                     <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                        Esta página serve como ponto central para acesso às políticas publicadas no GitHub Pages.
+                        Esta página serve como ponto central para acesso às políticas publicadas pela TJSDeveloper.
                     </p>
                     <p class="text-xs text-slate-500 leading-relaxed">
-                        Para novos aplicativos, basta adicionar outra página HTML na pasta <strong class="text-slate-300">politicas</strong> e inserir um novo card nesta seção.
+                        Para dúvidas sobre privacidade ou suporte, use o e-mail oficial: <strong class="text-slate-300">tjsdeveloper.apps@gmail.com</strong>.
                     </p>
                 </div>
             </div>
@@ -556,6 +586,8 @@
                 <a href="#privacidade" class="hover:text-white transition-colors">Privacidade</a>
                 <span>•</span>
                 <a href="politicas/lotostrategy.html" target="_blank" rel="noopener" class="hover:text-white transition-colors">Política LotoStrategy</a>
+                <span>•</span>
+                <a href="politicas/tjsyncbt.html" target="_blank" rel="noopener" class="hover:text-white transition-colors">Política TJSyncBT</a>
             </div>
         </div>
     </footer>
